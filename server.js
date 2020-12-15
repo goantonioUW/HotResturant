@@ -20,6 +20,15 @@ var tableInfo = [
     }
 ];
 
+const waitInfo = [
+    {
+        customerName: "Bob",
+        phoneNumber: "555-555-5555",
+        customerEmail: "null@null.com",
+        customerID: "123456"
+    }
+];
+
 //Routes
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
@@ -44,13 +53,15 @@ app.get("/api/tables", function(req, res) {
 app.post("/api/tables", function(req, res) {
     var newTable = req.body;
 
-
-    newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
-
     console.log(newTable);
   
-    characters.push(newTable);
-  
+    if ( tableInfo.length <= 4){
+    tableInfo.push(newTable);
+    return
+    }
+    else {
+        waitInfo.push(newTable);
+    };
     res.json(newTable);
     
 });
