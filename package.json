@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "HotResturant",
+  "description": "* Description: Basic app demonstrating Node and Express with jQuery. Overall purpose is to help schedule reservation requests. Restaurant has just 5 tables available. First five requests get a reservation, every request after that is sent to the waiting list.\r * Live Demo: <http://hot-restaurant.herokuapp.com/>",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goantonioUW/HotResturant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goantonioUW/HotResturant/issues"
+  },
+  "homepage": "https://github.com/goantonioUW/HotResturant#readme"
 }
