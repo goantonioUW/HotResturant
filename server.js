@@ -61,12 +61,13 @@ app.post("/api/tables", function(req, res) {
   
     if ( tableInfo.length <= 4){
     tableInfo.push(newTable);
-    return
+        res.send(true);
     }
     else {
         waitInfo.push(newTable);
+        res.send(false);
     };
-    res.json(newTable);
+
     
 });
 
@@ -75,8 +76,8 @@ app.post("/api/tables", function(req, res) {
 app.post("/api/clear", function (req, res) {
 
     waitInfo.length = 0;
-    tableInfo.length =0;
-
+    tableInfo.length = 0;
+    res.send("Success");
 });
 
 
