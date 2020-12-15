@@ -32,3 +32,33 @@ app.get("/api/tables", function(req,res) {
 app.get("/api/reserve", function (req,res) {
     res.sendFile(path.join(__dirname, "reserve.html"))
 });
+
+// Display Tables 
+app.get("/api/tables", function(req, res) {
+    return res.json(tableInfo);
+});
+
+
+//Posting new Table
+
+app.post("/api/tables", function(req, res) {
+    var newTable = req.body;
+
+
+    newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newTable);
+  
+    characters.push(newTable);
+  
+    res.json(newTable);
+    
+})
+
+
+
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
