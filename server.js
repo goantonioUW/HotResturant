@@ -47,6 +47,10 @@ app.get("/api/tables", function(req, res) {
     return res.json(tableInfo);
 });
 
+app.get("/api/waitlist", function(req, res) {
+    return res.json(waitInfo);
+});
+
 
 //Posting new Table
 
@@ -69,6 +73,9 @@ app.post("/api/tables", function(req, res) {
 //Clearing Data
 
 app.post("/api/clear", function (req, res) {
+
+    waitInfo.length = 0;
+    tableInfo.length =0;
 
 });
 
