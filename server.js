@@ -53,7 +53,13 @@ app.post("/api/tables", function(req, res) {
   
     res.json(newTable);
     
-})
+});
+
+//Clearing Data
+
+app.post("/api/clear", function (req, res) {
+
+});
 
 
 
