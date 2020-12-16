@@ -4,9 +4,11 @@ var path = require("path");
 
 //Express App
 var app = express();
-var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//Heroku PORT
+var PORT = process.env.PORT || 3001;
 
 //Table Info
 
@@ -16,7 +18,7 @@ var tableInfo = [
         phoneNumber: "555-555-5555",
         customerEmail: "null@null.com",
         customerID: "123456"
-        
+
     }
 ];
 
@@ -42,7 +44,7 @@ app.get("/reserve", function (req,res) {
     res.sendFile(path.join(__dirname, "reserve.html"))
 });
 
-// Display Tables 
+// Display Tables
 app.get("/api/tables", function(req, res) {
     return res.json(tableInfo);
 });
@@ -58,7 +60,7 @@ app.post("/api/tables", function(req, res) {
     var newTable = req.body;
 
     console.log(newTable);
-  
+
     if ( tableInfo.length <= 4){
     tableInfo.push(newTable);
         res.send(true);
@@ -68,7 +70,7 @@ app.post("/api/tables", function(req, res) {
         res.send(false);
     };
 
-    
+
 });
 
 //Clearing Data
